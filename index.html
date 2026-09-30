@@ -611,12 +611,8 @@ function makeResponseId(){
   return `ANG-${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}-${Math.random().toString(36).slice(2,7).toUpperCase()}`;
 }
 function buildPayload(){
-  const now=new Date(Date.now()-5*3600*1000).toISOString().replace(/\.\d{3}Z$/,'-05:00');
-  const payload={
-    "ID respuesta":makeResponseId(),
-    "Fecha y hora":now,
-    "Fecha de actualización":now
-  };
+  const now=new Date(Date.now()-5*3600*1000).toISOString().slice(0,19).replace('T',' ');
+  const payload={"Fecha y hora":now};
   for(let n=1;n<=57;n++)payload[`Q${n}`]=getQuestionValue(n);
   return payload;
 }
