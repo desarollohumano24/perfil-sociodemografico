@@ -191,11 +191,12 @@ async function handlePost(context) {
   if (!validateDatos(datos)) return respond(422, 'validacion', MSG.validacion);
 
   // 6. Configuración del servidor (sin revelar detalles).
-  const secret = env.TURNSTILE_SECRET_KEY;
-  const flowUrl = env.POWER_AUTOMATE_URL;
+  // .trim() evita fallos por espacios o saltos de línea pegados por error al configurar las variables.
+  const secret = String(env.TURNSTILE_SECRET_KEY || '').trim();
+  const flowUrl = String(env.POWER_AUTOMATE_URL || '').trim();
   if (!secret || !flowUrl || !/^https:\/\//i.test(flowUrl)) {
-    console.error('Configuración incompleta: falta TURNSTILE_SECRET_KEY o POWER_AUTOMATE_URL.');
-    return respond(503, 'temporal', MSG.temporal);
+    console.error('Configuración incompleta: falta TURNSTILE_SECRET_KEY o POWER_AUTOMATE_URL (o la URL no empieza por https://).');
+    return respond(503, 'temporal', `${MSG.temporal} (código CFG)`);
   }
 
   // 7. Turnstile validado en el servidor.
@@ -204,7 +205,7 @@ async function handlePost(context) {
     if (!human) return respond(403, 'seguridad', MSG.seguridad);
   } catch (_) {
     console.error('No fue posible contactar el servicio de verificación Turnstile.');
-    return respond(503, 'temporal', MSG.temporal);
+    return respond(503, 'temporal', `${MSG.temporal} (código TSV)`);
   }
 
   // 8. Reenvío a Power Automate con exactamente la misma estructura de siempre.
@@ -222,11 +223,11 @@ async function handlePost(context) {
     });
     if (!res.ok) {
       console.error(`Power Automate respondió con estado ${res.status}.`);
-      return respond(502, 'temporal', MSG.temporal);
+      return respond(502, 'temporal', `${MSG.temporal} (código PA${res.status})`);
     }
   } catch (_) {
     console.error('No fue posible contactar Power Automate.');
-    return respond(504, 'temporal', MSG.temporal);
+    return respond(504, 'temporal', `${MSG.temporal} (código PAN)`);
   } finally {
     clearTimeout(timer);
   }
