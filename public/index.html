@@ -4,101 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perfil Sociodemográfico | ANGIOSUR</title>
-<style>
-:root{--blue:#00AEEF;--red:#DA291C;--gray:#7A8894;--dark:#263746;--soft:#F5F8FA;--line:#DDE6EB;--muted:#667681}
-*{box-sizing:border-box}
-body{margin:0;font-family:"Segoe UI",Arial,sans-serif;color:var(--dark);background:#f3f7f9}
-.page{min-height:100vh;padding:26px 16px 42px}
-.shell{width:min(1050px,100%);margin:auto;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 12px 42px rgba(38,55,70,.11)}
-.topline{height:6px;background:linear-gradient(90deg,var(--blue) 0 50%,var(--red) 50% 100%)}
-.header{padding:22px 36px 18px;border-bottom:1px solid #edf1f3;text-align:center}
-.logo{width:min(330px,72vw);height:auto}
-.main{padding:30px 46px 38px}
-.progress-top{display:flex;justify-content:space-between;font-size:12px;color:var(--gray);margin-bottom:8px}
-.progress{height:7px;background:#e8eef1;border-radius:20px;overflow:hidden}
-.bar{height:100%;width:7%;background:var(--blue);transition:.25s}
-.step{display:none}.step.active{display:block}
-.kicker{font-size:12px;font-weight:800;letter-spacing:1.35px;text-transform:uppercase;color:var(--blue);margin:26px 0 8px}
-h1{font-size:31px;line-height:1.18;margin:0 0 10px;letter-spacing:-.5px}
-h2{font-size:25px;margin:0 0 8px}
-.subtitle{color:var(--muted);line-height:1.55;margin:0 0 24px}
-.intro{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:20px 22px;line-height:1.65}
-.notice{margin:18px 0;padding:16px 18px;background:#f8fbfc;border-left:4px solid var(--blue);border-radius:8px;color:#52636e;line-height:1.55}
-.notice strong{color:var(--dark)}
-.notice ul{margin:8px 0 0 20px;padding:0}
-.consent{border:1px solid var(--line);border-radius:14px;padding:17px 18px;margin-top:20px}
-.checkline{display:flex;align-items:flex-start;gap:10px;line-height:1.55;font-weight:650}
-.checkline input{margin-top:4px;accent-color:var(--blue);transform:scale(1.15)}
-.section-head{display:flex;align-items:flex-start;gap:13px;margin-bottom:23px}
-.section-num{min-width:42px;height:42px;border-radius:12px;background:#e9f8fd;color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:800}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.field{display:flex;flex-direction:column;gap:7px}
-.full{grid-column:1/-1}
-label{font-size:14px;font-weight:700;line-height:1.35}
-.req{color:var(--red)}
-.optional{font-size:11px;font-weight:500;color:#7b8992;margin-left:5px}
-input[type=text],input[type=number],input[type=date],select{
-width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:14px;color:var(--dark);outline:none
-}
-input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,174,239,.10)}
-.radio-row,.check-grid{display:flex;flex-wrap:wrap;gap:9px}
-.choice{display:flex;align-items:flex-start;gap:7px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff;font-size:13px;font-weight:500;cursor:pointer}
-.choice input{margin-top:2px;accent-color:var(--blue)}
-.helper{font-size:11px;color:#83909a;line-height:1.4}
-.actions{display:flex;justify-content:space-between;gap:12px;margin-top:30px}
-button{border:0;border-radius:10px;padding:13px 22px;font-weight:750;font-size:14px;cursor:pointer}
-.primary{background:var(--blue);color:#fff}.secondary{background:#edf2f4;color:var(--dark)}.danger{background:var(--red);color:#fff}
-.conditional{display:none}.conditional.show{display:flex}.field.invalid input,.field.invalid select{border-color:var(--red);box-shadow:0 0 0 3px rgba(218,41,28,.08)}.field-error{display:block;color:var(--red);font-size:11px;margin-top:6px;font-weight:600}
-.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
-.summary-card{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px}
-.summary-card b{display:block;font-size:11px;color:var(--gray);margin-bottom:5px}.summary-card span{font-size:15px;font-weight:750}
-.success{text-align:center;padding:45px 10px}
-.success-icon{width:68px;height:68px;border-radius:50%;margin:0 auto 17px;background:#e9f8fd;color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:31px;font-weight:800}
-.footer{text-align:center;color:#8b979e;font-size:11px;margin-top:17px}
-@media(max-width:720px){.main{padding:25px 19px 32px}.header{padding:21px 15px 17px}.grid{grid-template-columns:1fr}.full{grid-column:auto}.summary{grid-template-columns:1fr}h1{font-size:27px}}
-</style>
-
-<style>
-.uppercase-input{text-transform:uppercase;}
-.input-error{border-color:#DA291C !important;box-shadow:0 0 0 3px rgba(218,41,28,.08) !important;}
-.validation-message{display:none;color:#DA291C;font-size:12px;font-weight:600;margin-top:6px;}
-</style>
-
-
-<style>
-.completion-clean{
-  min-height:360px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:48px 24px 60px;
-}
-.completion-icon{
-  width:76px;
-  height:76px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:42px;
-  font-weight:700;
-  color:#fff;
-  background:#00AEEF;
-  margin-bottom:24px;
-}
-.completion-clean h2{
-  margin:0 0 12px;
-  color:#123A72;
-}
-.completion-clean p{
-  margin:0;
-  font-size:18px;
-  color:#526477;
-}
-</style>
-
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </head>
 <body>
 <div class="page"><div class="shell"><div class="topline"></div>
@@ -128,7 +37,7 @@ button{border:0;border-radius:10px;padding:13px 22px;font-weight:750;font-size:1
 <span><strong>He leído y comprendido esta información y autorizo a ANGIOSUR SAS el tratamiento de mis datos personales para las finalidades indicadas.</strong></span></label>
 </div>
 
-<div class="actions"><span></span><button class="primary" onclick="startForm()">Comenzar formulario →</button></div>
+<div class="actions"><span></span><button class="primary" data-action="start">Comenzar formulario →</button></div>
 </section>
 
 
@@ -202,8 +111,8 @@ button{border:0;border-radius:10px;padding:13px 22px;font-weight:750;font-size:1
 </div>
 </div>
 <div class="actions">
-<button class="secondary" onclick="goTo(0)">← Atrás</button>
-<button class="primary" onclick="nextStep(1,2)">Siguiente →</button>
+<button class="secondary" data-goto="0">← Atrás</button>
+<button class="primary" data-next="1,2">Siguiente →</button>
 </div>
 </section>
 
@@ -280,8 +189,8 @@ button{border:0;border-radius:10px;padding:13px 22px;font-weight:750;font-size:1
 </div>
 </div>
 <div class="actions">
-<button class="secondary" onclick="goTo(1)">← Atrás</button>
-<button class="primary" onclick="nextStep(2,3)">Siguiente →</button>
+<button class="secondary" data-goto="1">← Atrás</button>
+<button class="primary" data-next="2,3">Siguiente →</button>
 </div>
 </section>
 
@@ -338,8 +247,8 @@ button{border:0;border-radius:10px;padding:13px 22px;font-weight:750;font-size:1
 </div>
 </div>
 <div class="actions">
-<button class="secondary" onclick="goTo(2)">← Atrás</button>
-<button class="primary" onclick="nextStep(3,4)">Siguiente →</button>
+<button class="secondary" data-goto="2">← Atrás</button>
+<button class="primary" data-next="3,4">Siguiente →</button>
 </div>
 </section>
 
@@ -392,8 +301,8 @@ button{border:0;border-radius:10px;padding:13px 22px;font-weight:750;font-size:1
 </div>
 </div>
 <div class="actions">
-<button class="secondary" onclick="goTo(3)">← Atrás</button>
-<button class="primary" onclick="nextStep(4,5)">Siguiente →</button>
+<button class="secondary" data-goto="3">← Atrás</button>
+<button class="primary" data-next="4,5">Siguiente →</button>
 </div>
 </section>
 
@@ -488,9 +397,10 @@ button{border:0;border-radius:10px;padding:13px 22px;font-weight:750;font-size:1
 <select id="q55_input" data-q="55" required><option value="">Seleccione una opción</option><option value="No consumo">No consumo</option><option value="Una vez al mes o menos">Una vez al mes o menos</option><option value="2 a 4 veces al mes">2 a 4 veces al mes</option><option value="2 o más veces por semana">2 o más veces por semana</option></select>
 </div>
 </div>
+<div class="turnstile-box" id="turnstileBox"></div>
 <div class="actions">
-<button class="secondary" onclick="goTo(4)">← Atrás</button>
-<button class="primary" type="button" onclick="submitForm()">Finalizar →</button>
+<button class="secondary" data-goto="4">← Atrás</button>
+<button class="primary" type="button" data-action="submit">Finalizar →</button>
 </div>
 </section>
 
@@ -506,252 +416,5 @@ button{border:0;border-radius:10px;padding:13px 22px;font-weight:750;font-size:1
 <div class="footer">ANGIOSUR SAS · Seguridad y Salud en el Trabajo</div>
 </main></div></div>
 
-<script>
-const totalSteps=6;
-function radioValue(n){
-  const x=document.querySelector(`input[name="q${n}"]:checked`);
-  return x?x.value:"";
-}
-function selectValue(n){
-  const x=document.getElementById(`q${n}_input`);
-  return x?x.value:"";
-}
-function checkboxValues(n){
-  return [...document.querySelectorAll(`input[name="q${n}"]:checked`)].map(x=>x.value);
-}
-function showStep(n){
-  document.querySelectorAll(".step").forEach(s=>s.classList.remove("active"));
-  const step=document.getElementById("step"+n);
-  if(step)step.classList.add("active");
-  const labels=["Autorización","Datos personales","Educación y vivienda","Información laboral","Información de caracterización","Salud y hábitos","Finalizado"];
-  document.getElementById("stepLabel").textContent=labels[n]||"Formulario";
-  document.getElementById("stepPercent").textContent=n===0?"Inicio":(n===6?"Completado":Math.round((n/5)*100)+"%");
-  document.getElementById("progressBar").style.width=(n===0?7:Math.min(100,n*20))+"%";
-  window.scrollTo({top:0,behavior:"smooth"});
-  updateConditions();
-}
-function goTo(n){showStep(n)}
-function startForm(){
-  if(!document.getElementById("authorization").checked){
-    alert("Para continuar, debes leer y aceptar la autorización.");
-    return;
-  }
-  goTo(1);
-}
-function clearError(field){
-  field.classList.remove("invalid");
-  const e=field.querySelector(".field-error");
-  if(e)e.remove();
-}
-function error(field,msg){
-  clearError(field);
-  field.classList.add("invalid");
-  const e=document.createElement("div");
-  e.className="field-error";
-  e.textContent=msg;
-  field.appendChild(e);
-}
-function visible(field){
-  return field.offsetParent!==null;
-}
-function validField(field){
-  const radios=field.querySelectorAll('input[type="radio"]');
-  const checks=field.querySelectorAll('input[type="checkbox"]');
-  const select=field.querySelector("select");
-  const input=field.querySelector('input[type="text"],input[type="date"],input[type="number"]');
-  if(radios.length)return [...radios].some(x=>x.checked);
-  if(checks.length)return [...checks].some(x=>x.checked);
-  if(select)return select.value.trim()!=="";
-  if(input)return input.value.trim()!=="";
-  return true;
-}
-function validateStep(stepNo){
-  updateConditions();
-  const step=document.getElementById("step"+stepNo);
-  if(!step)return true;
-  let first=null;
-  step.querySelectorAll(".field").forEach(field=>{
-    clearError(field);
-    if(!visible(field))return;
-    if(field.id==="q2"){
-      const v=document.getElementById("q2_input").value.trim();
-      const pas=selectValue(1)==="Pasaporte";
-      const ok=pas?/^[A-Z0-9]{5,15}$/.test(v):/^[0-9]{5,11}$/.test(v);
-      if(!ok){
-        error(field,pas?"Pasaporte: de 5 a 15 letras o números, sin espacios.":"Debe tener entre 5 y 11 dígitos, sin puntos ni espacios.");
-        if(!first)first=field;
-      }
-      return;
-    }
-    if(!validField(field)){
-      error(field,"Este campo es obligatorio.");
-      if(!first)first=field;
-    }
-  });
-  if(first){
-    first.scrollIntoView({behavior:"smooth",block:"center"});
-    return false;
-  }
-  return true;
-}
-function nextStep(current,next){
-  if(validateStep(current))goTo(next);
-}
-const POWER_AUTOMATE_URL = 'https://default7537c61049ba4284bda61c2eed3366.aa.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/27/workflows/2d121ead3fef4336aa90ca79b0b2f54b/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Q-o75LelvHl7NxgHUKPzX7mvQ4aVCaDPR8WQp-bFUkY';
-function getQuestionValue(n){
-  const els=[...document.querySelectorAll(`[data-q="${n}"]`)];
-  const checks=els.filter(x=>((x.type==='checkbox'||x.type==='radio')&&x.checked));
-  if(checks.length)return checks.map(x=>x.value).join(' | ');
-  const el=els.find(x=>!((x.type==='checkbox'||x.type==='radio')));
-  return el ? (el.value || '').trim() : '';
-}
-function makeResponseId(){
-  const d=new Date();
-  const p=n=>String(n).padStart(2,'0');
-  return `ANG-${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}-${Math.random().toString(36).slice(2,7).toUpperCase()}`;
-}
-function buildPayload(){
-  const now=new Date(Date.now()-5*3600*1000).toISOString().slice(0,19).replace('T',' ');
-  const payload={"Fecha y hora":now};
-  for(let n=1;n<=57;n++)payload[`Q${n}`]=getQuestionValue(n);
-  return payload;
-}
-async function submitForm(){
-  if(!validateStep(5))return;
-  const btn=document.querySelector('#step5 button.primary');
-  const original=btn ? btn.textContent : 'Finalizar →';
-  if(btn){btn.disabled=true;btn.textContent='Enviando...';}
-  try{
-    const response=await fetch(POWER_AUTOMATE_URL,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(buildPayload())
-    });
-    if(!response.ok)throw new Error(`HTTP ${response.status}`);
-    goTo(6);
-  }catch(error){
-    console.error(error);
-    alert('No fue posible enviar la información. Verifica tu conexión e inténtalo nuevamente.');
-    if(btn){btn.disabled=false;btn.textContent=original;}
-  }
-}
-function updateConditions(){
-  const conditions={
-    9:()=>radioValue(8)==='Sí',
-    10:()=>radioValue(8)==='Sí',
-    13:()=>radioValue(12)==='Sí' && (radioValue(5)==='Mujer' || ['Mujer','Mujer trans'].includes(selectValue(6))),
-    16:()=>radioValue(15)==='Sí',
-    22:()=>['Motocicleta','Automóvil particular'].includes(selectValue(21)),
-    33:()=>radioValue(32)==='Sí',
-    36:()=>checkboxValues(35).includes('Persona con discapacidad'),
-    37:()=>checkboxValues(35).includes('Persona con discapacidad'),
-    38:()=>checkboxValues(35).includes('Persona con discapacidad'),
-    39:()=>checkboxValues(35).includes('Persona con discapacidad') && selectValue(38)==='Sí',
-    44:()=>selectValue(43)==='Sí',
-    45:()=>selectValue(43)==='Sí' && checkboxValues(44).includes('Otra'),
-    46:()=>selectValue(43)==='Sí',
-    48:()=>selectValue(47)==='Sí',
-    49:()=>selectValue(47)==='Sí' && checkboxValues(48).includes('Otro'),
-    50:()=>selectValue(47)==='Sí',
-    51:()=>selectValue(47)==='Sí',
-    54:()=>selectValue(53)==='Sí consumo',
-  };
-  Object.entries(conditions).forEach(([n,fn])=>{
-    const field=document.getElementById("q"+n);
-    if(!field)return;
-    const show=fn();
-    field.classList.toggle("show",show);
-    field.dataset.active=show?"1":"0";
-    if(!show){
-      field.querySelectorAll("input").forEach(x=>{x.checked=false;});
-      field.querySelectorAll("select").forEach(x=>{x.value="";});
-      field.querySelectorAll("input[type=text],input[type=date],input[type=number]").forEach(x=>{x.value="";});
-      clearError(field);
-    }
-  });
-}
-document.addEventListener("change",function(e){
-  const t=e.target;
-  if(t && t.name==="q35" && t.checked){
-    document.querySelectorAll('input[name="q35"]').forEach(function(x){
-      if(t.value==="Ninguno"?x!==t:x.value==="Ninguno")x.checked=false;
-    });
-  }
-  if(t && t.id==="q1_input"){
-    const d=document.getElementById("q2_input");
-    d.setAttribute("inputmode",t.value==="Pasaporte"?"text":"numeric");
-    d.value="";
-  }
-  updateConditions();
-});
-document.addEventListener("DOMContentLoaded",()=>{
-  document.getElementById("progressBar").style.width="7%";
-  updateConditions();
-});
-</script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-  // Texto ingresado: mayúsculas automáticas.
-  document.querySelectorAll('input[type="text"], textarea').forEach(function(el){
-    const labelText = (el.parentElement && el.parentElement.innerText) || "";
-    if (el.id!=='q2_input' && !/número de documento/i.test(labelText)) {
-      el.classList.add("uppercase-input");
-      el.addEventListener("input", function(){
-        const start = this.selectionStart, end = this.selectionEnd;
-        this.value = this.value.toUpperCase();
-        try { this.setSelectionRange(start, end); } catch(e) {}
-      });
-    }
-  });
-
-  // Cédula: solo números, máximo 11 dígitos y mínimo 5 para validar.
-  document.querySelectorAll('#q2_input').forEach(function(el){
-    el.addEventListener("input", function(){
-      const pas=(document.getElementById("q1_input")||{}).value==="Pasaporte";
-      this.value = pas ? this.value.toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,15) : this.value.replace(/\D/g, "").slice(0,11);
-      this.classList.remove("input-error");
-      const msg=this.parentElement.querySelector(".validation-message");
-      if(msg) msg.style.display="none";
-    });
-    el.addEventListener("keypress", function(e){
-      const pas=(document.getElementById("q1_input")||{}).value==="Pasaporte";
-      if(!(pas?/[A-Za-z0-9]/:/[0-9]/).test(e.key) && !["Backspace","Delete","Tab","ArrowLeft","ArrowRight","Home","End"].includes(e.key)){
-        e.preventDefault();
-      }
-    });
-    el.addEventListener("blur", function(){
-      const value=this.value.trim();
-      let msg=this.parentElement.querySelector(".validation-message");
-      if(!msg){
-        msg=document.createElement("div");
-        msg.className="validation-message";
-        this.parentElement.appendChild(msg);
-      }
-      if(value && value.length < 5){
-        msg.textContent="El documento debe tener mínimo 5 caracteres.";
-        msg.style.display="block";
-        this.classList.add("input-error");
-      } else {
-        msg.style.display="none";
-        this.classList.remove("input-error");
-      }
-    });
-  });
-});
-</script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-  document.querySelectorAll("#q56_input,#q57_input").forEach(function(el){
-    el.addEventListener("input", function(){
-      this.value = this.value.replace(/[^0-9.,]/g,"").replace(",", ".");
-    });
-  });
-});
-</script>
-
-</body>
+<script src="js/app.js"></script></body>
 </html>

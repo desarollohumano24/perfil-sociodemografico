@@ -1,0 +1,5 @@
+# Solo para pruebas locales con "wrangler pages dev". Copiar como .dev.vars (no se sube a GitHub).
+# En producción estas variables se configuran en Cloudflare, nunca en el código.
+POWER_AUTOMATE_URL="[CONFIGURAR EN CLOUDFLARE COMO SECRET]"
+TURNSTILE_SECRET_KEY="[CONFIGURAR EN CLOUDFLARE COMO SECRET]"
+TURNSTILE_SITE_KEY="[SITE KEY PÚBLICA DE TURNSTILE]"

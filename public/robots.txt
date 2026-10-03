@@ -1,0 +1,6 @@
+# Este sitio no debe aparecer en buscadores.
+# La página se protege con "noindex" (encabezado X-Robots-Tag y meta robots).
+# No se bloquea "/" aquí a propósito: si se bloquea, Google no puede leer el "noindex"
+# y podría listar la dirección sin contenido si alguien la publica en otro sitio.
+User-agent: *
+Disallow: /api/
