@@ -11,6 +11,7 @@ shutil.copytree(root / "public", out)
 
 enviar = (root / "functions/api/enviar.js").read_text(encoding="utf-8")
 config = (root / "functions/api/config.js").read_text(encoding="utf-8")
+diag = (root / "functions/diagnostico.js").read_text(encoding="utf-8").replace("export async function onRequest(context)", "async function diagHandler(context)")
 enviar = enviar.replace("export async function onRequest(context)", "async function enviarHandler(context)")
 config = config.replace("export async function onRequest(context)", "async function configHandler(context)")
 assert "export " not in enviar and "export " not in config
@@ -31,6 +32,9 @@ worker = f'''/**
 // ===== /api/config =====
 {config}
 
+// ===== /diagnostico (sin valores secretos) =====
+{diag}
+
 // ===== Encabezados de seguridad para todo lo demás (páginas y archivos) =====
 const SECURITY_HEADERS = {{
   'X-Robots-Tag': 'noindex, nofollow, noarchive, nosnippet',
@@ -47,6 +51,7 @@ export default {{
     const {{ pathname }} = new URL(request.url);
     if (pathname === '/api/enviar') return enviarHandler({{ request, env, ctx }});
     if (pathname === '/api/config') return configHandler({{ request, env, ctx }});
+    if (pathname === '/diagnostico') return diagHandler({{ request, env, ctx }});
     if (pathname === '/_worker.js' || pathname.startsWith('/api/')) {{
       return new Response('No encontrado', {{ status: 404, headers: SECURITY_HEADERS }});
     }}
